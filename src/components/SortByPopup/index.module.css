@@ -1,0 +1,30 @@
+.sortParent {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(85, 89, 87, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.sortPopup {
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12%;
+    padding: 3%;
+}
+
+.doSort{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}

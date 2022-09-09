@@ -1,0 +1,44 @@
+.morePopup {
+    width: 100%;
+    background-color: rgb(226, 220, 220);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: absolute;
+    bottom: 0;
+}
+
+.m1 {
+    width: 100%;
+    min-height: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2%;
+}
+
+._m1 {
+    min-height: 5rem;
+    text-align: left;
+    padding-left: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.m2 {
+    margin-bottom: 1%;
+}
+
+.m1 p {
+    width: fit-content;
+    cursor: pointer;
+}
+
+.type {
+    font-size: 14px;
+    color: rgb(94, 91, 91);
+}
+
+.listAlert {
+    color: rgb(99, 90, 90);
+}

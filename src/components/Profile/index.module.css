@@ -1,0 +1,108 @@
+.profile {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 7vh;
+    position: absolute;
+    top: 0;
+    z-index: 3;
+}
+
+.profilePopup {
+    width: 80%;
+    height: 90vh;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2%;
+    background-color: rgb(244, 235, 235);
+}
+
+.p1 {
+    width: 100%;
+    height: 7vh;
+    position: relative;
+}
+
+.closeimg {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.googleimg {
+    width: auto;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: red;
+    cursor: pointer;
+}
+
+.p2 {
+    width: 100%;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    gap: 2%;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.p3 {
+    width: 100%;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 0.5px solid gray;
+}
+
+.p3 button {
+    width: fit-content;
+    height: 70%;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border: 0.5px solid black;
+    border-radius: 20px;
+    padding: 0px 10px;
+}
+
+.addAccount {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.p4 {
+    width: 100%;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    font-size: 14px;
+}
+
+.p5{
+    width: 100%;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    gap: 2%;
+    text-align: left;
+    padding-left: 20px;
+}
