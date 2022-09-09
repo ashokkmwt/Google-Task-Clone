@@ -23,12 +23,12 @@ export default function Completed() {
     const dispatch = useDispatch();
 
     // If no task is completed return nothing
-    if(_tasks.filter(todo => todo.isChecked === true).length === 0) return;
+    if (_tasks.filter(todo => todo.isChecked === true).length === 0) return;
 
     return (
         <>
-            <div style={{ display: "flex" }}>
-                <h1 style={{ textAlign: "left", fontSize: 22 }}>Completed {_tasks.filter(todo => todo.isChecked === true).length}</h1>
+            <div className={styles.completeContainer} >
+                <h1 className={styles.taskComplete} >Completed {_tasks.filter(todo => todo.isChecked === true).length}</h1>
                 <img onClick={() => setIsOpne(!isOpne)} className={styles.expand} src={expand} alt="expand icon" />
             </div>
 
@@ -41,7 +41,7 @@ export default function Completed() {
                 return (
                     <React.Fragment key={id} >
                         <div className={styles.completed}>
-                      
+
                             <div className={styles.completeStatus}>
                                 <img onClick={doUncheck} className={styles.check} src={checkIcon} alt="check icon" />
                                 <div className={styles.myTask}>{task}</div>

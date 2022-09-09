@@ -14,23 +14,25 @@ export default function Mytask() {
 
 
     const filterList = lists.filter(list => list.listId === currentListId);
+
     let _tasks = []
-    if (filterList.length !== 0) {
-        _tasks = filterList[0].tasks
-    }
+    
+    if (filterList.length !== 0) _tasks = filterList[0].tasks
+
     const dispatch = useDispatch();
 
 
 
     if (_tasks.length === 0) {
-        return <div style={{ width: "100%", height: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <h1>No Task has been created yet!</h1>
-        </div>
+        return (
+            <div className={styles.showCompleted} >
+                <h1>No Task has been created yet!</h1>
+            </div>
+        )
     }
 
     return (
         <>
-            {/* {currentListId === 'jhgjgj242' & isImportant && <p>STARRED RECENTLY</p>} */}
             {_tasks.map((todo) => {
                 const { count, id, task, isChecked, isImportant } = todo;
                 const check = () => {
