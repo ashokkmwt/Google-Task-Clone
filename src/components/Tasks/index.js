@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import styles from './index.module.css'
-import goldStar from '../../assets/images/Golden-Star.png'
 import TaskAdd from '../TaskAdd'
 import { useSelector, useDispatch } from 'react-redux'
 import Completed from '../Completed'
@@ -120,7 +119,6 @@ export default function Tasks() {
 
                     <Completed />
 
-                    <img src={goldStar} alt="important" className={styles.goldStar} />
                     <div className={styles.info}>
                         <h2>No Starred tasks</h2>
                         <h4>Mark important tasks with a star so you can easily find them here</h4>
