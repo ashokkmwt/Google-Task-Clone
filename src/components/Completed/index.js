@@ -22,6 +22,9 @@ export default function Completed() {
 
     const dispatch = useDispatch();
 
+    // If no task is completed return nothing
+    if(_tasks.filter(todo => todo.isChecked === true).length === 0) return;
+
     return (
         <>
             <div style={{ display: "flex" }}>
