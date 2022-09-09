@@ -119,10 +119,10 @@ export default function Tasks() {
 
                     <Completed />
 
-                    <div className={styles.info}>
+                    {/* <div className={styles.info}>
                         <h2>No Starred tasks</h2>
                         <h4>Mark important tasks with a star so you can easily find them here</h4>
-                    </div>
+                    </div> */}
                 </main><hr />
 
                 <TaskAdd taskAddPopup={taskAddPopup} setTaskAddPopup={setTaskAddPopup} setIsMenu={setIsMenu} setIsMore={setIsMore} detail={detail} subtask={subtask} />

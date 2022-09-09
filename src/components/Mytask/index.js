@@ -22,6 +22,12 @@ export default function Mytask() {
 
 
 
+    if (_tasks.length === 0) {
+        return <div style={{ width: "100%", height: "100%", display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <h1>No Task has been created yet!</h1>
+        </div>
+    }
+
     return (
         <>
             {/* {currentListId === 'jhgjgj242' & isImportant && <p>STARRED RECENTLY</p>} */}
