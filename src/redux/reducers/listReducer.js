@@ -1,7 +1,7 @@
 import { deepCopy } from "../../utils/helper";
 import {
     OPEN_LIST, NEWLIST, CLOSE_LIST, SAVE_TASK, TASK_LIST, CHECK_TASK,
-    EXPAND, UNCHECK, UPDATE_TASK, CLOSE_UPDATE_POPUP, TOGGLE_IMPORTANT,
+    UNCHECK, UPDATE_TASK, CLOSE_UPDATE_POPUP, TOGGLE_IMPORTANT,
     UPDATE_TASK_IN_IMPORTANT, DELETE_TASK, TASK_DETAIL, CALENDAR, CLOSE_CALENDAR,
     SUBTASK, CLOSE_SUBTASK, ADD_SUBTASK, IMP_LIST, SORT_PUPUP, CLOSE_SORT_PUPUP,
     NEWLIST_NAME, RENAME_LIST, CLOSE_RENAME_LIST, OPEN_RENAME_LIST, DELETE_LIST_POPUP,
@@ -148,25 +148,6 @@ const listReducer = (state = initialState, action) => {
                 }
                 return list
             })
-
-            return { ...newState, lists: _lists }
-
-        case EXPAND:
-
-            _lists = lists.map(list => {
-
-                if (list.listId === currentListId) {
-
-                    const tasks = list.tasks.map(task => {
-
-                        if (task.id === action.payload.id) return { ...task, isExpanded: !action.payload.isExpanded }
-
-                        return task;
-                    })
-                    return { ...list, tasks }
-                }
-                return list;
-            });
 
             return { ...newState, lists: _lists }
 

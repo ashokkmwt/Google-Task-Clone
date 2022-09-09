@@ -96,10 +96,7 @@ export default function Tasks() {
 
                             if (index === 0) {
                                 return (
-                                    // working here
-                                    // className={_listId === currentListId && `[styles.listStyles]`} use this class conditionally
-
-                                    <svg key={list.listId} onClick={addTaskInList} width="22" height="22" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <svg key={list.listId} onClick={addTaskInList} width="22" height="22" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" >
                                         <path fillRule="evenodd" clipRule="evenodd" d="M66.6578 24.5927L50.3956 0L33.5926 25.4106L3.2273e-05 26.2416L17.0534 50.4223L0.791199 75.015H34.3973L52.0178 100L67.4757 75.015H100L83.197 49.6044L99.1691 23.7885L66.6578 24.5927Z" fill={_listId === currentListId ? "blue" : "#000000"} />
                                     </svg>
 
@@ -119,10 +116,6 @@ export default function Tasks() {
 
                     <Completed />
 
-                    {/* <div className={styles.info}>
-                        <h2>No Starred tasks</h2>
-                        <h4>Mark important tasks with a star so you can easily find them here</h4>
-                    </div> */}
                 </main><hr />
 
                 <TaskAdd taskAddPopup={taskAddPopup} setTaskAddPopup={setTaskAddPopup} setIsMenu={setIsMenu} setIsMore={setIsMore} detail={detail} subtask={subtask} />

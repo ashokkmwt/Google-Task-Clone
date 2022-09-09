@@ -1,4 +1,4 @@
-import { SAVE_TASK, CHECK_TASK, EXPAND, UNCHECK } from "./types";
+import { SAVE_TASK, CHECK_TASK,  UNCHECK } from "./types";
 
 const saveTaskAction = (data) => {
     return {
@@ -14,12 +14,6 @@ const checkAction = (data) => {
     }
 }
 
-const expandAcion = (data) => {
-    return {
-        type: EXPAND,
-        payload: data
-    }
-}
 
 const doUncheckAction = (data) => {
     return {
@@ -29,4 +23,4 @@ const doUncheckAction = (data) => {
 }
 
 
-export { saveTaskAction, checkAction, expandAcion, doUncheckAction }
+export { saveTaskAction, checkAction, doUncheckAction }

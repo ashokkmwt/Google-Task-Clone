@@ -36,3 +36,13 @@
     height: 25px;
     cursor: pointer;
 }
+
+.taskComplete {
+    text-align: left;
+    font-size: 22;
+    padding-left: 5%;
+}
+
+.completeContainer {
+    display: flex;
+}
