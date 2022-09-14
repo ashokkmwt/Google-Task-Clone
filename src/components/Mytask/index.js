@@ -30,7 +30,7 @@ export default function Mytask() {
             </div>
         )
     }
-
+ 
     return (
         <>
             {_tasks.map((todo) => {
@@ -60,7 +60,7 @@ export default function Mytask() {
                             <div className={styles.taskRender}>
                                 <input type="checkbox" onClick={check} />
 
-                                <p onClick={updateTask}>{task}</p>
+                                <p className={styles._task} onClick={updateTask}>{task}</p>
 
                                 {!isImportant ?
                                     <img onClick={setImportant} src={important} alt="important star" className={styles.taskRenderimg} /> :

@@ -13,23 +13,7 @@ export default function MenuPopup() {
 
     const openListPopup = () => dispatch(openListAction(true))
 
-    // const impList = () => dispatch(impListAction());
-
-    // const addNewList = () => dispatch(openListAction(true));
     return (
-        // <div onClick={(e) => { e.stopPropagation() }} className={styles.menuPopup}>
-        //     <div onClick={impList} className={styles.l1}>
-        //         <img className={styles.staricon} src={starIcon} alt="star icon" />
-        //         <h4>Starred</h4>
-        //     </div><hr />
-        //     <div className={styles.l2}><h4>My Tasks</h4></div><hr />
-        //     <div className={styles.l1}>
-        //         <h4>+</h4>
-        //         <h4 onClick={addNewList}>Create new list</h4>
-        //     </div>
-        // </div>
-
-
         <div onClick={(e) => { e.stopPropagation() }} className={styles.menuPopup}>
             <div>
 

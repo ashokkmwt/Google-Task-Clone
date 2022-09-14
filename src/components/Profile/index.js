@@ -10,7 +10,7 @@ import { closeProfilePopup } from '../../redux/actions/popupActions'
 import { useDispatch } from 'react-redux'
 
 export default function Profile() {
-
+ 
     const dispatch = useDispatch();
 
     const _closePopup = () => dispatch(closeProfilePopup(false));
@@ -33,7 +33,7 @@ export default function Profile() {
                     <div className={styles.logo}></div>
                     <div>
                         <h4>Just4Fun All</h4>
-                        <p>akakallexam@gmail.com</p>
+                        <p>....@gmail.com</p>
                     </div>
                 </div>
                 <div className={styles.p3}>
@@ -43,13 +43,14 @@ export default function Profile() {
                     <div className={styles.logo}></div>
                     <div>
                         <h4>ak ak</h4>
-                        <p>ashok1481997@gmail.com</p>
+                        <p>sendtoashokkumawat@gmail.com</p>
                     </div>
                 </div>
 
                 {profileArray.map(array => {
+                    const id = Math.ceil(Math.random() * 10000)
                     return (
-                        <div className={styles.p5}>
+                        <div key={id} className={styles.p5}>
                             <img className={styles.addAccount} src={array.image} alt={array.alternative} />
                             <h5>{array.detail}</h5>
                         </div>

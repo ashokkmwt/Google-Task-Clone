@@ -7,7 +7,7 @@ import { doUncheckAction } from '../../redux/actions/taskAction';
 
 
 export default function Completed() {
-
+ 
     const [isOpne, setIsOpne] = useState(false);
 
     const getTask = useSelector(state => state.listReducer);

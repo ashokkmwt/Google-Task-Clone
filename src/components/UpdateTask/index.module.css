@@ -35,12 +35,12 @@
 
 .importantIcon {
     position: absolute;
-    right: 16%;
+    right: 250px;
 }
 
 .deleteIcon {
     position: absolute;
-    right: 8%;
+    right: 125px;
 }
 
 
@@ -111,7 +111,7 @@
     cursor: pointer;
 }
 
-._subtaskButton{
+._subtaskButton {
     padding-left: 38px;
 }
 
@@ -142,6 +142,26 @@
 .closeIcon {
     width: 25px;
     height: 25px;
-    margin-left: 5%;
+    margin-left: 6%;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 800px) {
+    .importantIcon {
+        right: 160px;
+    }
+
+    .deleteIcon {
+        right: 80px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .importantIcon {
+        right: 120px;
+    }
+
+    .deleteIcon {
+        right: 50px;
+    }
 }

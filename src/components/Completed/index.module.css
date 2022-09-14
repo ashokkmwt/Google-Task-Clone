@@ -10,6 +10,16 @@
     gap: 10px;
 }
 
+.completeContainer {
+    display: flex;
+}
+
+.taskComplete {
+    text-align: left;
+    font-size: 22px;
+    padding-left: 100px;
+}
+
 .completeStatus {
     display: flex;
     flex-direction: row;
@@ -20,7 +30,7 @@
     width: 30px;
     height: 30px;
     position: absolute;
-    left: 25%;
+    left: 450px;
     cursor: pointer;
 }
 
@@ -37,12 +47,24 @@
     cursor: pointer;
 }
 
-.taskComplete {
-    text-align: left;
-    font-size: 22;
-    padding-left: 5%;
+@media only screen and (max-width: 800px) {
+
+    .expand {
+        left: 350px;
+    }
+
+    .taskComplete {
+        padding-left: 60px;
+    }
 }
 
-.completeContainer {
-    display: flex;
+@media only screen and (max-width: 600px) {
+
+    .expand {
+        left: 250px;
+    }
+
+    .taskComplete {
+        padding-left: 30px;
+    }
 }

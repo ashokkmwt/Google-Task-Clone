@@ -7,7 +7,6 @@
 .taskBar {
     width: 100%;
     height: 10vh;
-    /* background-color: yellow; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,6 +31,7 @@
 .navBar {
     width: 100%;
     height: 10vh;
+    padding-left: 20px;
 }
 
 .navBar ol {
@@ -39,18 +39,22 @@
     height: 100%;
     display: flex;
     flex-direction: row;
-    list-style: none;
     align-items: center;
-    padding-left: 5%;
-    padding-right: 2%;
-    gap: 5%;
-    overflow-x: auto;
-}
-.listStyles{
-color: blue;
+    list-style: none;
+    gap: 30px;
+    overflow-x: scroll;
 }
 
-::-webkit-scrollbar{
+.listStyles {
+    color: blue;
+}
+
+.impList {
+    width: 32px;
+    height: 32px;
+}
+
+::-webkit-scrollbar {
     width: 0px;
 }
 
@@ -68,6 +72,7 @@ main {
     flex-direction: column;
     position: relative;
     gap: 10px;
+    padding: 20px;
 }
 
 .info {
@@ -83,4 +88,19 @@ main {
     margin-right: auto;
     position: absolute;
     top: 0;
+}
+
+@media only screen and (max-width: 800px) {
+    .heading {
+        font-size: 1.2rem;
+    }
+
+    .navBar ol li{
+        font-size: 1rem;
+    }
+
+    .impList{
+        width: 27px;
+        height: 27px;
+    }
 }

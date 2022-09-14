@@ -57,7 +57,9 @@ export default function TaskAdd(props) {
 
   return (
     <div>
-      <button className={styles.addBtn} onClick={addTask} >+</button>
+      <div className={styles._btn}>
+        <button className={styles.addBtn} onClick={addTask} >+</button>
+      </div>
       <footer>
         <div className={styles.menuIcon}>
           <img onClick={() => { setIsMenu(true) }} src={menuIcon} alt="menu icon" />
@@ -70,11 +72,17 @@ export default function TaskAdd(props) {
         <div onClick={(e) => { e.stopPropagation() }} className={styles.taskAddPopup}>
           <input onChange={handleTask} placeholder='New task' />
           <div className={styles.newNavBar}>
-            <img src={addDetail} alt="add detail" />
-            <img src={calendar} alt="calendar" />
-            <img src={important} alt="important" />
+            <div className={styles._taskImg}>
+              <img width="100%" height="100%" src={addDetail} alt="add detail" />
+            </div>
+            <div className={styles._taskImg}>
+              <img width="100%" height="100%" src={calendar} alt="calendar" />
+            </div>
+            <div className={styles._taskImg}>
+              <img width="100%" height="100%" src={important} alt="important" />
+            </div>
             <button onClick={saveTask}>Save</button>
-          </div>
+          </div> 
         </div>
       }
     </div>

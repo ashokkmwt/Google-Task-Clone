@@ -17,6 +17,12 @@ footer .moreIcon {
     cursor: pointer;
 }
 
+._btn{
+    width: 100%;
+    position: absolute;
+    bottom: 5vh;
+}
+
 .addBtn {
     height: 45px;
     width: 45px;
@@ -27,9 +33,8 @@ footer .moreIcon {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    left: 49%;
-    bottom: 5vh;
+    margin-left: auto;
+    margin-right: auto;
     cursor: pointer;
 }
 
@@ -59,13 +64,15 @@ footer .moreIcon {
 .newNavBar {
     width: 100%;
     height: 50%;
-    /* background-color: teal; */
     display: flex;
     align-items: center;
+    gap: 25px;
+    padding-left: 15px;
 }
 
-.newNavBar img {
-    margin-left: 5%;
+._taskImg{
+    width: 32px;
+    height: 32px;
     cursor: pointer;
 }
 
@@ -79,3 +86,18 @@ footer .moreIcon {
     cursor: pointer;
 }
 
+@media only screen and (max-width: 800px) {
+    ._taskImg{
+        width: 27px;
+        height: 27px;
+    }
+
+    .taskAddPopup input{
+        font-size: 1.1rem;
+    }
+
+    .newNavBar button{
+        font-size: 1.1rem;
+    }
+}
+ 

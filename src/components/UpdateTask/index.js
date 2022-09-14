@@ -93,7 +93,7 @@ export default function UpdateTask(props) {
                 <div className={styles.listOptions}>
                     <p>{listName}</p>
                     <h1>\/</h1>
-                </div>
+                </div> 
                 <div className={styles.task}>{task}</div>
                 <div className={styles.detail}>
                     <img className={styles.addDetail} src={addDetail} alt="add detail" />

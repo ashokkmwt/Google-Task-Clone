@@ -10,26 +10,29 @@
     width: 100%;
     height: fit-content;
     text-align: left;
-    padding-left: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 7%;
-    margin-top: 1%;
-}
+    gap: 5%;
+} 
 
 .taskRender input {
-    width: 20px;
+    min-width: 20px;
     height: 20px;
     border: 1px solid black;
-    border-radius: 50%;
+    border-radius: 100%;
     vertical-align: middle;
-    -webkit-appearance: none;
+    -webkit-appearance: none;   
     cursor: pointer;
 }
 
 .taskRender input:checked {
     background-color: blue;
+}
+
+._task{
+    width: auto;
+    height: fit-content;
 }
 
 .taskRenderimg {
@@ -44,4 +47,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media only screen and (max-width: 800px){
+    .showCompleted{
+        font-size: smaller;
+    }
+}
+@media only screen and (max-width: 600px){
+    .showCompleted{
+        font-size: x-small;
+    }
 }

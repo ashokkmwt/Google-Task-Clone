@@ -96,9 +96,11 @@ export default function Tasks() {
 
                             if (index === 0) {
                                 return (
-                                    <svg key={list.listId} onClick={addTaskInList} width="22" height="22" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" >
-                                        <path fillRule="evenodd" clipRule="evenodd" d="M66.6578 24.5927L50.3956 0L33.5926 25.4106L3.2273e-05 26.2416L17.0534 50.4223L0.791199 75.015H34.3973L52.0178 100L67.4757 75.015H100L83.197 49.6044L99.1691 23.7885L66.6578 24.5927Z" fill={_listId === currentListId ? "blue" : "#000000"} />
-                                    </svg>
+                                    <li key={list.listId} onClick={addTaskInList}>
+                                        <svg className={styles.impList} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                                            <path fillRule="evenodd" clipRule="evenodd" d="M66.6578 24.5927L50.3956 0L33.5926 25.4106L3.2273e-05 26.2416L17.0534 50.4223L0.791199 75.015H34.3973L52.0178 100L67.4757 75.015H100L83.197 49.6044L99.1691 23.7885L66.6578 24.5927Z" fill={_listId === currentListId ? "blue" : "#000000"} />
+                                        </svg>
+                                    </li>
 
                                 );
                             }
@@ -107,7 +109,7 @@ export default function Tasks() {
                                 <li className={_listId === currentListId ? styles.listStyles : ""} key={list.listId} onClick={addTaskInList}>{list.list}</li>
                             )
                         })}
-                        <li onClick={openListPopup}>+ New list</li>
+                        <li className={styles._li} onClick={openListPopup}>+ New list</li>
                     </ol>
                 </nav><hr />
                 <main>
