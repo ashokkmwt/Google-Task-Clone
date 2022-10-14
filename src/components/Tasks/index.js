@@ -27,7 +27,7 @@ export default function Tasks() {
     const googleProvider = new GoogleAuthProvider();
     const GoogleLogin = async () => {
         try {
-            const result = await signInWithPopup(auth, googleProvider)
+            // const result = await signInWithPopup(auth, googleProvider)
             navigate('/')
         } catch (error) {
             console.log(error);
