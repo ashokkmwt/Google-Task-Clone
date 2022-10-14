@@ -8,9 +8,10 @@ import settingIcon from '../../assets/images/settings.png'
 import helpIcon from '../../assets/images/helpIcon.png'
 import { closeProfilePopup } from '../../redux/actions/popupActions'
 import { useDispatch } from 'react-redux'
+import Login from '../Login'
 
 export default function Profile() {
- 
+
     const dispatch = useDispatch();
 
     const _closePopup = () => dispatch(closeProfilePopup(false));
@@ -25,6 +26,7 @@ export default function Profile() {
     return (
         <div className={styles.profile}>
             <div className={styles.profilePopup}>
+                <Login />
                 <div className={styles.p1}>
                     <img onClick={_closePopup} className={styles.closeimg} src={closeIcon} alt='close icon' />
                     <img className={styles.googleimg} src={googleIcon} alt='google icon' />

@@ -32,7 +32,7 @@ export default function CalendarComponent() {
             <p className={styles._time}>Repeat</p>
           </div>
           <div className={styles.buttonBar}>
-            <button className={styles.cancleButton}>Cancel</button>
+            <button onClick={closeCalendar} className={styles.cancleButton}>Cancel</button>
             <button className={styles.doneButton}>Done</button>
           </div>
         </div>

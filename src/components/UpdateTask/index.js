@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./index.module.css";
 import backArrowIcon from '../../assets/images/backArrow.png';
 import importantIcon from '../../assets/images/important.svg';
@@ -15,7 +15,9 @@ import CalendarComponent from "../CalendarComponent";
 
 export default function UpdateTask(props) {
 
-    const { _task, currentListId, setDetail, setSubtask } = props;
+    const [subTask, setSubTask] = useState("");
+
+    const { _task, currentListId, setDetail } = props;
 
     const { task, id, isImportant } = _task;
 
@@ -35,8 +37,7 @@ export default function UpdateTask(props) {
     const __task = _tasks.filter(task => task.id === id)
 
     let updateTask = __task[0];
-
-    const subTask = updateTask.subtask.subtask;
+    const subtasks = updateTask.subtask
 
     const listName = _lists.filter(list => list.listId === currentListId)[0].list;
 
@@ -63,7 +64,9 @@ export default function UpdateTask(props) {
 
     const showCalendar = () => dispatch(calendarAction(getTask.isCalendar));
 
-    const addSubtask = () => dispatch(_subtaskPopupAction());
+    const addSubtaskPopup = () => {
+        dispatch(_subtaskPopupAction());
+    }
 
     const closeSubtask = () => {
         const popup = getTask.subtask;
@@ -72,9 +75,17 @@ export default function UpdateTask(props) {
     }
 
     const handleSubtask = (e) => {
-        const _subtask = e.target.value;
-        setSubtask(_subtask);
-        const data = { _subtask, id, currentListId }
+        setSubTask(e.target.value);
+    }
+
+    const _addSubtask = () => {
+        const value = {
+            subTask: subTask,
+            id: Math.ceil(Math.random() * 100000)
+        }
+
+        const data = { value: value, taskId: id, currentListId }
+
         dispatch(subtaskAction(data));
     }
 
@@ -93,7 +104,7 @@ export default function UpdateTask(props) {
                 <div className={styles.listOptions}>
                     <p>{listName}</p>
                     <h1>\/</h1>
-                </div> 
+                </div>
                 <div className={styles.task}>{task}</div>
                 <div className={styles.detail}>
                     <img className={styles.addDetail} src={addDetail} alt="add detail" />
@@ -110,18 +121,19 @@ export default function UpdateTask(props) {
                     <div className={styles.yyyyy}>
                         {getTask.subtask &&
                             <>
-                                {__task.map(task => {
+                                {subtasks.map((st) => {
                                     return (
-                                        <div key={task.id} className={styles.subtaskBox}>
+                                        <div key={st.id} className={styles.subtaskBox}>
                                             <input type="checkbox" className={styles.subtaskInput} />
-                                            <textarea className={styles.detailInput} placeholder='Enter title' value={subTask} onChange={handleSubtask} />
+                                            <textarea className={styles.detailInput} placeholder='Enter title' value={st.subTask} onChange={handleSubtask} />
                                             <img onClick={closeSubtask} className={styles.closeIcon} src={closeIcon} alt="close icon" />
                                         </div>
                                     )
                                 })}
                             </>
                         }
-                        <button onClick={addSubtask} className={styles._subtaskButton}>Add subtasks</button>
+                        <button onClick={_addSubtask} className={styles.addSubtask}>Add</button>
+                        <button onClick={addSubtaskPopup} className={styles._subtaskButton}>Add subtasks</button>
                     </div>
                 </div>
             </div>

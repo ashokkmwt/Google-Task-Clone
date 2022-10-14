@@ -21,11 +21,33 @@
 .profile {
     width: 45px;
     height: 45px;
-    background-color: navy;
+    font-size: 28px;
+    font-weight: 700;
     position: absolute;
-    right: 2%;
+    right: 3%;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.user {
+    position: absolute;
+    right: 3%;
+    top: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.user h3 {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.userImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 
 .navBar {
@@ -95,12 +117,30 @@ main {
         font-size: 1.2rem;
     }
 
-    .navBar ol li{
+    .navBar ol li {
         font-size: 1rem;
     }
 
-    .impList{
+    .impList {
         width: 27px;
         height: 27px;
+    }
+
+    .profile{
+        font-size: 20px;
+    }
+
+    .user {
+        gap: unset;
+        top: 1%;
+    }
+
+    .user h3 {
+        font-size: 15px;
+    }
+
+    .userImage {
+        width: 40px;
+        height: 40px;
     }
 }

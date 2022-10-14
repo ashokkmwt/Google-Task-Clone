@@ -4,7 +4,6 @@ import TaskAdd from '../TaskAdd'
 import { useSelector, useDispatch } from 'react-redux'
 import Completed from '../Completed'
 import NewList from '../NewList'
-import Profile from '../Profile'
 import Mytask from '../Mytask'
 import MenuPopup from '../MenuPopup'
 import MorePopup from '../MorePopup'
@@ -15,9 +14,31 @@ import SortByPopup from '../SortByPopup'
 import RenameList from '../RenameList'
 import DeleteList from '../DeleteList'
 
+import { useNavigate } from 'react-router-dom';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { auth } from '../../utils/firebase'
+import { useAuthState } from 'react-firebase-hooks/auth';
+
 export default function Tasks() {
 
-    const [subtask, setSubtask] = useState("");
+    // add gmail
+    const [user, loading] = useAuthState(auth);
+    const navigate = useNavigate();
+    const googleProvider = new GoogleAuthProvider();
+    const GoogleLogin = async () => {
+        try {
+            const result = await signInWithPopup(auth, googleProvider)
+            navigate('/')
+        } catch (error) {
+            console.log(error);
+        }
+        dispatch(openProfilePopup(true))
+    };
+
+    const goToDashboard = () => {
+        auth.signOut();
+        navigate('/');
+    }
 
     const [taskAddPopup, setTaskAddPopup] = useState(false);
 
@@ -35,10 +56,6 @@ export default function Tasks() {
 
     const { isNewList, renameList, lists, currentListId, taskDetails, deleteList } = newList;
 
-    let { popup } = useSelector(state => state.profileReducer)
-    // or  let getPopup = useSelector(state => state.profileReducer)
-    // const {popup} = getPopup;
-
     const openListPopup = () => dispatch(openListAction());
 
     const hidePopup = () => {
@@ -48,9 +65,6 @@ export default function Tasks() {
         isMore && setIsMore(false);
 
     }
-
-    const _openPopup = () => dispatch(openProfilePopup(true))
-
 
     const filterList = lists.filter(list => list.listId === currentListId);
 
@@ -68,22 +82,42 @@ export default function Tasks() {
             {_tasks.map(_task => {
                 return (
                     <React.Fragment key={_task.id}>
-                        {_task.updateTaskPopup && <UpdateTask _task={_task} currentListId={currentListId} taskDetails={taskDetails} detail={detail} setDetail={setDetail} setSubtask={setSubtask} />}
+                        {_task.updateTaskPopup && <UpdateTask _task={_task} currentListId={currentListId} taskDetails={taskDetails} detail={detail} setDetail={setDetail} />}
                     </React.Fragment>
                 )
             })}
-
-            {popup && <Profile />}
 
             {isNewList && <NewList />}
 
             {sortPopup && <SortByPopup />}
 
             <div onClick={hidePopup} className={styles.parent}>
+
+                {loading && <h1>Loading...</h1>}
+
                 <div className={styles.taskBar}>
                     <div className={styles.heading}>Tasks</div>
 
-                    <div onClick={_openPopup} className={styles.profile}></div>
+                    {/* login */}
+                    {!user &&
+                        <div onClick={GoogleLogin} className={styles.profile}><p>Login</p></div>
+                    }
+                    {user && (
+                        <div className={styles.user}>
+                            <div className={styles.userImage}>
+                                <img
+                                    width="100%"
+                                    height="100%"
+                                    src={user.photoURL}
+                                    alt='user'
+                                    referrerPolicy='no-referrer'
+                                    className='w-12 rounded-full'
+                                />
+                            </div>
+                            <h3 onClick={goToDashboard}>Sign Out</h3>
+                        </div>
+                    )}
+
                 </div>
                 <nav className={styles.navBar}>
                     <ol>
@@ -120,7 +154,7 @@ export default function Tasks() {
 
                 </main><hr />
 
-                <TaskAdd taskAddPopup={taskAddPopup} setTaskAddPopup={setTaskAddPopup} setIsMenu={setIsMenu} setIsMore={setIsMore} detail={detail} subtask={subtask} />
+                <TaskAdd taskAddPopup={taskAddPopup} setTaskAddPopup={setTaskAddPopup} setIsMenu={setIsMenu} setIsMore={setIsMore} detail={detail} />
 
                 {/* adding menu popup */}
                 {isMenu && <MenuPopup />}

@@ -44,7 +44,6 @@ const listReducer = (state = initialState, action) => {
             return { ...newState, currentListId: action.payload }
 
         case SAVE_TASK:
-
             _lists = lists.map(list => {
 
                 if (list.listId === action.payload.currentListId) {
@@ -52,6 +51,7 @@ const listReducer = (state = initialState, action) => {
                     const updateList = list.tasks;
 
                     updateList.push(action.payload);
+
 
                     return { ...list, tasks: updateList }
 
@@ -342,18 +342,16 @@ const listReducer = (state = initialState, action) => {
 
                     const _task = _tasks.map(task => {
 
-                        if (task.id === action.payload.id) {
+                        if (task.id === action.payload.taskId) {
 
-                            const _subtask = task.subtask;
-
-                            _subtask.subtask = action.payload._subtask;
-
-                            return { ...task, subtask: _subtask }
+                            return task
                         }
                         return task
                     })
                     return { ...list, tasks: _task }
                 }
+                // console.log("yaha par kya ho raha hai?",list);
+
                 return list
             })
             return { ...newState, lists: _lists }

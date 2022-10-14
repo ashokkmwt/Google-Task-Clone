@@ -11,7 +11,9 @@ import { showMoreAction } from '../../redux/actions/popupActions'
 
 export default function TaskAdd(props) {
 
-  const { taskAddPopup, setTaskAddPopup, setIsMenu, setIsMore, detail, subtask } = props;
+
+
+  const { taskAddPopup, setTaskAddPopup, setIsMenu, setIsMore, detail } = props;
 
   const [task, setTask] = useState("");
 
@@ -30,17 +32,17 @@ export default function TaskAdd(props) {
     const id = Math.ceil(Math.random() * 10000000)
 
     const data = {
+      count: 0,
+      completedTaskAlert: true,
       currentListId: currentListId,
-      task: task,
+      detail: detail,
       id: id,
       isChecked: false,
       isExpanded: false,
-      count: 0,
-      updateTaskPopup: false,
       isImportant: false,
-      detail: detail,
-      completedTaskAlert: true,
-      subtask: { subtask: subtask }
+      subtask: [],
+      task: task,
+      updateTaskPopup: false,
     }
 
     dispatch(saveTaskAction(data))
@@ -82,7 +84,7 @@ export default function TaskAdd(props) {
               <img width="100%" height="100%" src={important} alt="important" />
             </div>
             <button onClick={saveTask}>Save</button>
-          </div> 
+          </div>
         </div>
       }
     </div>
